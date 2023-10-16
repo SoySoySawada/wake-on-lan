@@ -57,26 +57,3 @@ fn send_magic_packet(mac_addr: Vec<u8>) {
     // ネットワーク上の任意のデバイスのポート9に対してパケット送信(ブロードキャスト)
     socket.send_to(&packet, "255.255.255.255:9").unwrap();
 }
-
-
-// fn main() {    
-//     // MAC Address(引数から取得)
-//     let mac_addr_vec = get_mac_addr_vec();
-
-//     let mac_addr = "48:21:0B:5B:BC:D3";
-//     let mac_addr: Vec<u8> = mac_addr
-//         .split(":")
-//         .flat_map(|s| hex::decode(s).unwrap())
-//         .collect();
-
-//     // Magic Packet
-//     let mut packet = vec![0xFFu8; 6];
-//     packet.extend(iter::repeat(mac_addr).take(16).flatten());
-
-//     // broadcast
-//     // 使用可能なポートを自動で使用
-//     let socket = UdpSocket::bind("0.0.0.0:0").unwrap();
-//     socket.set_broadcast(true).unwrap();
-//     // ネットワーク上の任意のデバイスのポート9に対してパケット送信(ブロードキャスト)
-//     socket.send_to(&packet, "255.255.255.255:9").unwrap();
-// }
